@@ -1,57 +1,69 @@
 <!DOCTYPE html>
 <html>
   <head>
-    
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"/>
-   
+      rel="stylesheet"
+    />
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"/>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="shortcut icon" type="image/png" href="img/beer.png"/>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <link rel="shortcut icon" type="image/png" href="img/beer.png" />
     <title>Beer Movie App</title>
 
     <style>
-    body {
-    text-align: center;
-    }
-    form{
-    margin-top: 100px;
-    }
+      body {
+        text-align: center;
+      }
+      form {
+        display: inline-block;
+        margin-top: 100px;
+      }
+      .active{
+        text-align: center;
+      }
+      #beer{
+        margin-top: 20px;
+      }
     </style>
   </head>
 
   <body>
-      <nav>
-        <div class="nav-wrapper light-blue darken-3">
-          <a href="#!" class="brand-logo">Beer Movie App</a>
-          <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-          <ul class="right hide-on-med-and-down">
-            <li><a href="index.html">Beer</a></li>
-            <li><a href="indoor.html">Movie</a></li>
-            <li><a href="ourdoor.html">Calories</a></li>
-          </ul>
-        </div>
-      </nav>
-      <form>
-        <div class="input-field inline">
-          <input id="food-input" class="validate">
-          <label for="email_inline">What food do you want?</label>
-          <span class="helper-text" data-error="wrong" data-success="right">It's Friday night!</span>
-        </div>
-        <br>
-        <a class="waves-effect waves-light btn">button</a>
-      </form>
-      <div id="beer"></div>
-      <div id="movie"></div>
+    <nav>
+      <div class="nav-wrapper light-blue darken-3">
+        <a href="#!" class="brand-logo">Beer Movie App</a>
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger"
+          ><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="index.html">Beer</a></li>
+          <li><a href="indoor.html">Movie</a></li>
+          <li><a href="ourdoor.html">Calories</a></li>
+        </ul>
+      </div>
+    </nav>
 
+    <form>
+      <div class="row">
+        <div class="input-field col xs12">
+          <!-- 3 column on small screens -->
+          <input id="food-input" class="validate" />
+          <label class="active">What food do you want?</label>
+          <span class="helper-text" data-error="wrong" data-success="right"
+            >It's Friday night!</span
+          >
+        </div>
+      </div>
+      <br />
+      <a id="search-btn" class="waves-effect waves-light btn">button</a>
+    </form>
 
-    
-    
-    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <div id="beer"></div>
+    <div id="movie"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
