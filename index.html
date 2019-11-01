@@ -117,23 +117,6 @@
             </ul>
         </div>
     </div> 
-
-<!--     <div class="col s12 m7" id="beerCard">
-        <h3 class="header">Beer with the food!</h3>
-        <div class="card horizontal">
-          <div class="card-image" id="beerImag">
-            <!-- <img src="https://lorempixel.com/100/190/nature/6"> -->
-         <!--  </div>
-          <div class="card-stacked">
-            <div class="card-content" id="description">
-              <!-- <p>I am a very simple card. I am good at containing small bits of information.</p> -->
-            <!-- </div>
-            <div class="card-action">
-              <a href="#">This is a link</a>
-            </div>
-          </div>
-        </div>
-      </div>   --> 
     
     <div id="moviesInformation">
         <h4 class="header">Movie with the Beer!</h4>
@@ -201,7 +184,9 @@
 
             
             // newFood 를 블러야 실행이 되는 것인데 실행시키지 않았었던 것
+            // --> It executes only when I call getFoodData(newFood), but I didn't
             // newFood 버튼을 설정하고, 부르고, api 기능으로 실행시키는 것
+            // --> Set the newFood button, Call it, execute with API
             getFoodData(newFood);            
         });
     //3 ------------------------------------------------------ 
@@ -228,35 +213,41 @@
                 console.log("4");
                 console.log(response);
 
-                var year = response[0].first_brewed.slice(3);
+                var random = Math.floor(Math.random()*response.length);
+                var year = response[random].first_brewed.slice(3);
+               
+
                 // console.log(response[0].first_brewed.slice(3));
                 foodYear.push(year);
 
                 arrayButtons();  // year 를 받기 전에 콜을 불렀기 때문에 아무것도 안나왔던것.
-                showFoodData(response);
+                                 // --> I didn't get anything, because I call arrayButtons(), before I get the year data
+                                 // --> Now I get the year data, because I call arrayButton after I get the year data from API 
+                showFoodData(response, random);
                 getMovieData(year);
                 //  $("#beerOutput").text(JSON.stringify(response));                
             });
         }        
     //5 ------------------------------------------------------ 
-        function showFoodData(response) {
-            console.log("5");
+        function showFoodData(response,random) {
+            console.log("random");
+            
 
             $("#beerView").empty();
 
             var foodDiv = $("<div class= 'foodData'>");
 
-            var name = response[0].name;            
-            var firstBrewed = response[0].first_brewed.slice(3);            
-            var description = response[0].description;
-            var foodPairing = response[0].food_pairing;
+            var name = response[random].name;            
+            var firstBrewed = response[random].first_brewed.slice(3);            
+            var description = response[random].description;
+            var foodPairing = response[random].food_pairing;
             
             var pOne = $("<h5>").html("BeerName :  " + name);
             var pTwo = $("<h6>").html("FirstBrewed :  " + firstBrewed);           
             var pThree = $("<h6>").html("Description : " +  '<br>' + description);
             var pFour = $("<h6>").html("Food_paring : " +  '<br>' + foodPairing);
 
-            var imageURL = response[0].image_url;
+            var imageURL = response[random].image_url;
             var img = $("<img>").attr("src", imageURL);
             img.attr("style", 'height:200px; margin:0 auto;');
             foodDiv.append(img);
