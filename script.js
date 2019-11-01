@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 $("#search-btn").on("click", function(event){
     event.preventDefault();
     var foodInput = $("#food-input").val().trim();
@@ -64,3 +65,5 @@ function updateMovie(response){
 //          $("#beer").append(beerImg);
 //     });
 // }
+=======
+>>>>>>> parent of 17bc871... beerapi done
