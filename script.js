@@ -6,6 +6,7 @@ M.Slider.init(slider, {
     interval:4000
 })
 $(document).ready(function() { 
+    $('audio#pop')[0].play();
     var foodButton= [];
     var foodYear= [];
 //1 -----------------------------------------------------
@@ -85,8 +86,8 @@ $(document).ready(function() {
 
         var imageURL = response[random].image_url;
         var img = $("<img>").attr("src", imageURL);
+        img.addClass("beer-img");
         beerDiv.append(img);
-
         beerDiv.append(pOne,pTwo,pThree,pFour);
        
         $("#beer-view").append(beerDiv);
@@ -120,7 +121,8 @@ $(document).ready(function() {
         var pFive = $("<p>").text("Country: " + country); 
         
         var imgURL = response.Poster;
-        var image = $("<img>").attr("src", imgURL);           
+        var image = $("<img>").attr("src", imgURL);  
+        image.addClass("movie-poster");        
         movieDiv.append(image);
         
         movieDiv.append(pOne,pTwo,pThree,pFour,pFive);
