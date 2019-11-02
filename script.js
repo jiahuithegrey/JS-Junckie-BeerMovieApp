@@ -85,36 +85,27 @@ $(document).ready(function() {
 
         var imageURL = response[random].image_url;
         var img = $("<img>").attr("src", imageURL);
-        img.attr("style", 'height:200px; margin:0 auto;');
         beerDiv.append(img);
 
-        beerDiv.append(pOne);
-        beerDiv.append(pTwo);               
-        beerDiv.append(pThree);
-        beerDiv.append(pFour);
-
+        beerDiv.append(pOne,pTwo,pThree,pFour);
+       
         $("#beer-view").append(beerDiv);
-        // var beerDiv = $("<div class= 'beerData>");
-        beerDiv.attr("style", 'height:500px;width:500px;display:inline-block;border:1px solid black;vertical-align:top;'); 
-        // $("#beer-view").prepend(beerDiv);
     }        
 //6  ------------------------------------------------------ 
     function getMovieData(year) {            
         // var movie = $(this).attr("data-name");
-        // var year = firstBrewed;
         var queryURL = "http://www.omdbapi.com/?apikey=3f779744&t=beer&y=" + year;  
         $.ajax({
         url: queryURL,
         method: "GET",
         }).then(function(response) {             
-            console.log(response);
-            // showBeerData(response);
-            // showMovieData(response);
+            showMovieData(response);
         });
     }
 //7 ------------------------------------------------------
     function showMovieData(response) {
-        var movieDiv = $("<div class='movie'>");          
+        $("#movie-view").empty();
+        var movieDiv = $("<div class='movie-data'>");          
         
         var title = response.Title;
         var plot = response.Plot;
@@ -126,19 +117,15 @@ $(document).ready(function() {
         var pTwo = $("<p>").text("Plot: " + plot);
         var pThree = $("<p>").text("Director: " + director);
         var pFour = $("<p>").text("Actors: " + actors);            
-        var pFive = $("<p>").text("Country: " + country);          
+        var pFive = $("<p>").text("Country: " + country); 
         
-        movieDiv.append(pOne);
-        movieDiv.append(pTwo);
-        movieDiv.append(pThree);
-        movieDiv.append(pFour);
-        movieDiv.append(pFive);
-
         var imgURL = response.Poster;
         var image = $("<img>").attr("src", imgURL);           
         movieDiv.append(image);
+        
+        movieDiv.append(pOne,pTwo,pThree,pFour,pFive);
 
-        $("#moviesView").append(movieDiv);
+        $("#movie-view").append(movieDiv);
     }      
 arrayButtons();   
 });
