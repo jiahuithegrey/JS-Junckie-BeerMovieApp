@@ -1,0 +1,47 @@
+nav{
+    position: fixed;
+    background: rgba(0, 0, 0, 0.2);
+    padding:0px 20px;
+    z-index: 100;
+  }
+
+.caption{
+    margin-top: 75px;
+}
+h2{
+    font-weight: bold;
+}
+#search-bar{
+    height: 65px;
+}
+#search-question{
+    margin-top: 0px;
+}
+#food-input{
+    padding-left: 10px;
+    color: #ef6c00;
+    font-size: 26px;
+    font-weight: bold;
+}
+#button-view{
+    margin: 20px;
+}
+.food-btn{
+    font-size: 26px;
+    padding: 5px 20px;
+    border: 3px solid #ffa726;
+    color: #ffa726;
+    background-color: white;
+    margin: 10px 10px 10px 10px;
+}
+.header{
+    margin: 20px;
+    padding: 0;
+}
+/* .slider {
+    height: 200px;
+} */
+
+#buttonList, #beerOutput, #movies-view {
+    padding :20px;
+}
