@@ -139,6 +139,8 @@ $(document).ready(function() {
         movieDiv.append(image);
 
         $("#moviesView").append(movieDiv);
-    }      
+       
+    }     
+
 arrayButtons();   
 });
